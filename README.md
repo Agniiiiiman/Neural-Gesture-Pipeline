@@ -161,11 +161,14 @@ The detected gesture is shown on the screen in real time.
 
 ## 📸 Demo
 
-Add screenshots or GIFs here.
+<div align="center">
+  <img src="assets/screenshot_1.png" width="45%" alt="Gesture Recognition Demo 1" />
+  <img src="assets/screenshot_2.png" width="45%" alt="Gesture Recognition Demo 2" />
+  <br/><br/>
+  <img src="assets/screenshot_3.png" width="45%" alt="Gesture Recognition Demo 3" />
+  <img src="assets/screenshot_4.png" width="45%" alt="Gesture Recognition Demo 4" />
+</div>
 
-```md
-![Demo](assets/demo.gif)
-```
 
 ---
 
