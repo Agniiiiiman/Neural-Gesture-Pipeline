@@ -35,7 +35,7 @@ import math
 from collections import deque
 from typing import Optional
 
-from gesture_pipeline import config
+from . import config
 
 logger = logging.getLogger(__name__)
 
@@ -156,8 +156,8 @@ class GestureRecognizer:
         if fingers == [0, 1, 1, 0, 0]:
             return "Peace ✌"
 
-        # OK Sign — check if thumb tip and index tip are very close
-        if thumb and index and not middle and not ring and not pinky:
+        # OK Sign — check if thumb tip and index tip are very close, and other fingers are extended
+        if middle and ring and pinky:
             if self._distance(landmarks[THUMB_TIP], landmarks[INDEX_TIP]) < 0.07:
                 return "OK Sign 👌"
 

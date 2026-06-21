@@ -23,7 +23,7 @@ import cv2
 import mediapipe as mp
 import numpy as np
 
-from gesture_pipeline import config
+from . import config
 
 logger = logging.getLogger(__name__)
 
@@ -188,11 +188,11 @@ class HandDetector:
 # Camera helper (not part of the detector class, but closely related)
 # ---------------------------------------------------------------------------
 
-def open_camera(index: int = config.CAMERA_INDEX) -> cv2.VideoCapture:
+def open_camera(index: int | str = config.CAMERA_INDEX) -> cv2.VideoCapture:
     """Open and validate a webcam capture device.
 
     Args:
-        index: OpenCV device index (default 0).
+        index: OpenCV device index (default 0) or video path/URL.
 
     Returns:
         An opened ``cv2.VideoCapture`` object.

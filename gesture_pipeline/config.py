@@ -1,7 +1,7 @@
 """
-config.py — Centralised Configuration
+config.py — Centralized Configuration
 ======================================
-All tunable runtime constants live here.  Edit this file to customise the
+All tunable runtime constants live here.  Edit this file to customize the
 pipeline without touching any detection or recognition logic.
 """
 
@@ -9,8 +9,8 @@ pipeline without touching any detection or recognition logic.
 # Camera / capture settings
 # ---------------------------------------------------------------------------
 
-#: OpenCV device index for the webcam (0 = default system camera)
-CAMERA_INDEX: int = 0
+#: OpenCV device index for the webcam (0 = default system camera) or video path/URL
+CAMERA_INDEX: int | str = 0
 
 #: Target display width in pixels. Height is scaled proportionally.
 DISPLAY_WIDTH: int = 960
@@ -47,11 +47,11 @@ SMOOTHING_WINDOW: int = 7
 # Overlay / display settings
 # ---------------------------------------------------------------------------
 
-#: BGR colour for the gesture label overlay text.
-LABEL_COLOR_BGR: tuple = (0, 255, 128)
+#: BGR color for the gesture label overlay text.
+LABEL_COLOR_BGR: tuple[int, int, int] = (0, 255, 128)
 
-#: BGR colour for the FPS counter text.
-FPS_COLOR_BGR: tuple = (255, 255, 0)
+#: BGR color for the FPS counter text.
+FPS_COLOR_BGR: tuple[int, int, int] = (255, 255, 0)
 
 #: Font scale for the gesture label.
 LABEL_FONT_SCALE: float = 1.2
@@ -59,11 +59,11 @@ LABEL_FONT_SCALE: float = 1.2
 #: Font thickness for the gesture label.
 LABEL_FONT_THICKNESS: int = 2
 
-#: BGR colour for the landmark skeleton.
-LANDMARK_COLOR_BGR: tuple = (0, 128, 255)
+#: BGR color for the landmark skeleton.
+LANDMARK_COLOR_BGR: tuple[int, int, int] = (0, 128, 255)
 
-#: BGR colour for the landmark connection lines.
-CONNECTION_COLOR_BGR: tuple = (255, 255, 255)
+#: BGR color for the landmark connection lines.
+CONNECTION_COLOR_BGR: tuple[int, int, int] = (255, 255, 255)
 
 # ---------------------------------------------------------------------------
 # Keyboard shortcuts
@@ -74,3 +74,4 @@ QUIT_KEY: str = "q"
 
 #: Press this key to save a screenshot to ./screenshots/.
 SCREENSHOT_KEY: str = "s"
+

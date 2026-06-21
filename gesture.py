@@ -2,9 +2,7 @@ import cv2
 import logging
 import time
 import os
-from gesture_pipeline.detector import HandDetector, open_camera
-from gesture_pipeline.recognizer import GestureRecognizer
-from gesture_pipeline import config
+from gesture_pipeline import HandDetector, open_camera, GestureRecognizer, config
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
