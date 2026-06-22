@@ -9,6 +9,7 @@ Detect and classify hand gestures directly from a webcam feed using computer vis
 ![Python](https://img.shields.io/badge/Python-3.x-blue)
 ![OpenCV](https://img.shields.io/badge/OpenCV-Computer%20Vision-green)
 ![MediaPipe](https://img.shields.io/badge/MediaPipe-Hand%20Tracking-orange)
+[![Website](https://img.shields.io/badge/Live_Dashboard-Deployed-blueviolet?style=flat-square&logo=vercel)](https://neural-gesture-pipeline-wj2p.vercel.app)
 ![License](https://img.shields.io/badge/License-MIT-yellow)
 
 </div>
@@ -17,7 +18,9 @@ Detect and classify hand gestures directly from a webcam feed using computer vis
 
 ## 📌 Overview
 
-Neural Gesture Pipeline is a real-time gesture recognition system that uses **MediaPipe Hand Tracking** and **OpenCV** to detect hand landmarks and identify common gestures.
+Neural Gesture Pipeline is a real-time gesture recognition system that uses **MediaPipe Hand Tracking** and **OpenCV** to detect hand landmarks and identify common gestures. It includes both a local python pipeline and a premium **Next.js Web Dashboard** for browser-based real-time tracking, metrics visualization, and live feedback.
+
+🚀 **Live Web Dashboard:** [https://neural-gesture-pipeline-wj2p.vercel.app](https://neural-gesture-pipeline-wj2p.vercel.app)
 
 The project demonstrates the complete gesture-recognition workflow:
 
@@ -30,26 +33,26 @@ Landmark Extraction
      ↓
 Gesture Classification
      ↓
-Output Display
+Output Display (Local & Web Dashboard)
 ```
 
 ---
 
 ## ✨ Features
 
-✅ Real-time webcam processing
+✅ **Real-Time Webcam Processing:** High FPS tracking directly in your browser or local window.
 
-✅ Accurate hand landmark detection
+✅ **Accurate Hand Landmark Detection:** Extracts 21 precise 3D coordinates per hand.
 
-✅ Open Hand recognition
+✅ **Premium Web Dashboard:** A sleek, glassmorphic Next.js portal including:
+* **Live Detection Page** using webcams securely over HTTPS.
+* **Landmarks Visualiser** for debugging coordinates in real time.
+* **Logs & Analytics Portal** to monitor and store detected gestures.
+* **Settings Panel** to tweak confidence thresholds.
 
-✅ Fist recognition
+✅ **Supported Gestures:** Open Hand, Fist, Pointing, and Finger Counting.
 
-✅ Pointing gesture detection
-
-✅ Finger counting
-
-✅ Lightweight and beginner-friendly
+✅ **Lightweight & Modular:** Easily expandable codebase.
 
 ---
 
@@ -57,9 +60,10 @@ Output Display
 
 | Technology | Purpose |
 |------------|---------|
-| Python | Core Programming |
-| OpenCV | Video Processing |
-| MediaPipe | Hand Tracking |
+| Next.js / TypeScript | Web Dashboard Frontend |
+| React / Recharts | Web UI & Analytics Charts |
+| MediaPipe | Hand Landmarker Models |
+| Python / OpenCV | Local Detection Pipeline |
 | NumPy | Numerical Operations |
 
 ---
@@ -69,10 +73,18 @@ Output Display
 ```text
 Neural-Gesture-Pipeline/
 │
-├── gesture.py
-├── README.md
-├── requirements.txt
-└── assets/
+├── gesture.py             # Python command-line/local OpenCV pipeline
+├── requirements.txt       # Python dependencies
+├── gesture_pipeline/      # Python detector module
+│   ├── config.py          # Python configuration parameters
+│   └── detector.py        # Hand Landmarker module
+│
+├── dashboard/             # Next.js web application (Dashboard)
+│   ├── src/               # Application source code
+│   └── package.json       # Web dependencies and scripts
+│
+├── assets/                # Documentation assets and screenshots
+└── README.md
 ```
 
 ---
