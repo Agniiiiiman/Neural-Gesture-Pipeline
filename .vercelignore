@@ -1,0 +1,9 @@
+# Ignore python files and virtual environments to prevent Vercel from running the Python builder
+gesture.py
+gesture_pipeline/
+requirements.txt
+.venv/
+__pycache__/
+assets/
+README.md
+.gitignore
