@@ -136,10 +136,14 @@ export default function LiveDetection() {
     ctx.stroke();
 
     // Center text
+    ctx.save();
+    ctx.translate(w / 2, h / 2 + 10);
+    ctx.scale(-1, 1);
     ctx.fillStyle = 'rgba(255, 255, 255, 0.2)';
     ctx.font = '500 14px var(--font-sans)';
     ctx.textAlign = 'center';
-    ctx.fillText('CAMERA STANDBY - CLICK START TO INITIALISE', w / 2, h / 2 + 10);
+    ctx.fillText('CAMERA STANDBY - CLICK START TO INITIALISE', 0, 0);
+    ctx.restore();
   };
 
   const drawBoundingBox = (
@@ -173,15 +177,21 @@ export default function LiveDetection() {
     ctx.strokeRect(minX, minY, maxX - minX, maxY - minY);
     ctx.setLineDash([]); // reset
 
-    // Label background
-    ctx.fillStyle = 'rgba(139, 92, 246, 0.85)';
+    // Label background & text (flipped back to cancel CSS mirror)
+    ctx.save();
     ctx.font = 'bold 12px var(--font-sans)';
     const textWidth = ctx.measureText(gestureLabel).width;
-    ctx.fillRect(minX, minY - 24, textWidth + 16, 24);
+    
+    // We translate to maxX on canvas (which corresponds to left edge on screen)
+    ctx.translate(maxX, minY - 24);
+    ctx.scale(-1, 1);
 
-    // Label text
+    ctx.fillStyle = 'rgba(139, 92, 246, 0.85)';
+    ctx.fillRect(0, 0, textWidth + 16, 24);
+
     ctx.fillStyle = '#ffffff';
-    ctx.fillText(gestureLabel, minX + 8, minY - 8);
+    ctx.fillText(gestureLabel, 8, 16);
+    ctx.restore();
   };
 
   const handleStart = () => {

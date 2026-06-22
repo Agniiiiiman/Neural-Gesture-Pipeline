@@ -189,8 +189,7 @@ export const useHandTracker = () => {
 
             resultsData.landmarks.forEach((landmarksList: Landmark[], index: number) => {
               const rawHandedness = resultsData.handedness[index]?.[0]?.categoryName || 'Right';
-              // MediaPipe handedness is inverted when mirrored
-              const handedness = rawHandedness === 'Left' ? 'Right' : 'Left';
+              const handedness = rawHandedness === 'Left' ? 'Left' : 'Right';
               
               const classification = classifyGesture(landmarksList, handedness);
               const confidence = resultsData.handedness[index]?.[0]?.score || 0.95;
